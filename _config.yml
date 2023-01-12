@@ -1,0 +1,12 @@
+markdown: kramdown
+permalink: /:title/
+url: https://blog.amgod.net
+name: blog.amgod.net
+author: Amgod
+email: amgod20@qq.com
+beian: None
+weibo: 18850691
+github: Amgod
+safe: true
+paginate: 20
+about: "欢迎观赏、建议、拍砖……"
