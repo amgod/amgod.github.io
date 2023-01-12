@@ -1,7 +1,0 @@
-Title: 文章测试
-Date: 2014-06-06 21:12:32
-tags:测试
-你好吗，测试这个系统
-
-Disqus是一家第三方社会化评论系统，主要为网站主提供评论托管服务。Disqus由Danniel Ha于2007年5月5日创办，和Dropbox、Reddit等知名网站一样，是Y Combinator孵化的一家公司。创办至今已获得Y-Combinator、Union Square Ventures、North Bridge等投资机构共计1450万美元投资。
-当前有80万家第三方网站在使用Disqus提供的第三方评论系统，其评论系统每月的独立用户访问量已接近5亿，这一数字较2010年增长了500%。包括CNN、NBC、Fox News、Engadget、Time等知名网站均使用了Disqus提供的社会化评论系统。WordPress、Blogger、Tumblr等第三方博客平台均提供了Disqus第三方评论插件，目前，第三方社会化评论系统在美国，基本是主流网站的标配。
