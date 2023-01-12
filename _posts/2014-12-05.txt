@@ -1,0 +1,56 @@
+---
+Title: 根据CAID计算chipid
+date: 2014-12-05 13:02
+status: public
+
+---
+
+直接上代码：
+```python
+# -*- coding: utf-8 -*-
+import os,sys
+import time
+time_now=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time())) #取得当前时间
+file=os.path.isfile("CAID.txt")#判断文件是否存在
+if (file == False):
+	fp=open('Error.txt','a')
+	fp.write('['+time_now + ']'+' Error: CAID.txt文件不存在！'+'\n')
+	fp.close()
+	print u'CAID.txt文件不存在！'
+else:
+	fp0 = open('CAID.txt','r')    #打开目标文件1；     
+	fp1=open('ChipID.txt','w')    #创建要写入内容的文件；
+	fp1.write('   CAID       ChipID(Hex)  ChipID(Dec)'+'\n')
+	n=0
+	for lines in fp0:
+		CaID=lines.strip('\n') #去掉回车换行符
+		n=n+1
+		if len(CaID)!=11:
+			fp=open('Error.txt','a')
+			fp.write('['+time_now + ']'+' Error: 请检查第' +str(n)+ '行CAID长度是否正确！'+'\n')
+			fp.close()
+			print u'请检查第' + str(n) + u'行CAID长度是否正确！'
+			break    #中断执行
+		else:
+			if CaID.isdigit():
+				CaID_int=int(CaID)       #转换为整数型
+				CaID_10=int(CaID_int/10)   #取整，去掉尾数
+				if CaID_10>2**31:
+					Chipid_int=int(CaID_10-2**31)
+				else:
+					Chipid_int=int(CaID_10+2**31)  #CAID转换为CHIPid十进制的算法
+				Chipid_Dec_str=str(Chipid_int)[0:10]  #截取字符串，去掉最后的L字符
+				Chipid_Hex=hex(Chipid_int)     #转换为十六进制
+				Chipid_Hex_str=Chipid_Hex[2:10]#截取字符串，去掉前面的0x和后面的L字符
+				fp1.write(CaID +'    ' +Chipid_Hex_str  + '    ' + Chipid_Dec_str + '\n')      #将CAID chipid十六进制和十进制写入文件，中间以空格间隔
+			else:
+				fp=open('Error.txt','a')
+				fp.write('['+time_now + ']'+' Error: 请检查第'+ str(n) + '行CAID是否为整数！'+'\n')
+				fp.close()
+				print u'请检查第'+ str(n) + u'行CAID是否为整数！'
+				break
+	fp0.close()           #关闭文件
+	fp1.close()
+```
+
+[Caid2Chipid.py](/photo/_attachment/2014-12-05/Caid2Chipid.py)

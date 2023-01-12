@@ -1,0 +1,27 @@
+---
+date: 2015-01-25 21:17
+status: public
+tags: python
+title: 'Windows下安装pip包报错Unable to find vcvarsall.bat的解决办法'
+---
+
+刚在机器上windows环境下装上pip方便以后安装包的时候使用，谁知道第一次使用pip安装py2exe 0.6.10a的时候就报错。
+在Windows7 x32下使用pip安装包的时候提示报错：Unable to find vcvarsall.bat
+环境：windows7 x32 ，python2.7.9
+原因：windows下使用pip安装包的时候需要机器装有vs2008，VS2010和VS2012还不行，如果不想装VS2008的话，可以安装一个Micorsoft Visual C++ Compiler for Python 2.7的包，下载地址如下：
+http://www.microsoft.com/en-us/download/details.aspx?id=44266
+安装步骤：
+1、用Universal Extractor解压VCForPython27到目标目录如：D:\VCForPython27
+2、环境变量－－系统变量－－变量Path添加:D:\VCForPython27\Microsoft\Visual C++ for Python\9.0\VC\bin
+3、导入注册表：
+```python
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\9.0]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\9.0\setup]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\9.0\setup\VC]
+"ProductDir"="D:\\VCForPython27\\Microsoft\\Visual C++ for Python\\9.0\\"
+```
+安装ok
