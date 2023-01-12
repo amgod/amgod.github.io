@@ -1,7 +1,7 @@
 ---
 date: 2014-06-01 23:12:18
 layout: post
-Title: 小姐妹花
+title: 小姐妹花
 thread: 0
 categories: 日志
 tags: 博客
