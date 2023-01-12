@@ -1,8 +1,11 @@
 ---
+Title: '2014 gone,2015 come'
 date: 2014-12-31 17:36
-status: public
-title: '2014 gone,2015 come'
----
+layout: post
+thread: 0
+categories: 日志
+tags: 博客
+----
 
 2014的最后一天，下了一场雪。
 ![](~/2015-2014.jpg)
