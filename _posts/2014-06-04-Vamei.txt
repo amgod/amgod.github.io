@@ -1,4 +1,10 @@
+---
 Title: 协议森林by-Vamei
-Date: 2013-02-21 21:18:54  
-tags:互联网协议
+date: 2013-02-21 21:18:54 
+layout: post
+thread: 0
+categories: 日志
+tags: 互联网协议
+---
+
 ninnihqo
