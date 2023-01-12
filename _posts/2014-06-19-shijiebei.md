@@ -1,5 +1,5 @@
 ---
-Title: 西班牙VS智利 
+title: 西班牙VS智利 
 Date: 2014-06-19 20:51:14
 layout: post
 thread: 0
