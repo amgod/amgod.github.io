@@ -1,8 +1,10 @@
 ---
+title: 'Windows下安装pip包报错Unable to find vcvarsall.bat的解决办法'
 date: 2015-01-25 21:17
 status: public
+thread: 0
+categories: 日志
 tags: python
-title: 'Windows下安装pip包报错Unable to find vcvarsall.bat的解决办法'
 ---
 
 刚在机器上windows环境下装上pip方便以后安装包的时候使用，谁知道第一次使用pip安装py2exe 0.6.10a的时候就报错。
