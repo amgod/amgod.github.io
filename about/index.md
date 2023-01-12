@@ -19,5 +19,4 @@ comments: no
 
 GitHub : [http://github.com/{{ site.github }}](http://github.com/{{ site.github }})
 
-----
 
