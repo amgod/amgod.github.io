@@ -18,7 +18,7 @@ tags: python
 对这个函数的调用addOn() addOn(2) addOn(3,4,5,6)等等都是可以的。
     与第3种方式类似，形参名前面加了两个*表示，参数在函数内部将被存放在以形式名为标识符的dictionary中。这时候调用函数必须采用key1=value1、key2=value2...的形式。比如：
 ```
-```python:n
+```python
 def addOn(**arg):
     sum = 0
     if len(arg) == 0:
@@ -39,7 +39,7 @@ def addOn(**arg):
 第三，把多出来的“arg”这种形式的实参组成一个tuple给带一个星号的形参
 第四，把多出来的“key=value”这种形式的实参转为一个dictionary给带两个星号的形参。
 例子：
-```python:n
+```python
 def test(x,y=5,*a,**b):
     print(x,y,a,b)
 ```
