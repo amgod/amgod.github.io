@@ -1,0 +1,49 @@
+---
+Title: python  字符串处理 ( 查找含相同字符串的行数，并保存)
+date: 2014-10-28 13:57
+status: public
+title: 'python  字符串处理 ( 查找含相同字符串的行数，并保存)'
+---
+
+因工作需求，需要对文件进行处理。需求如下：
+A文件中字符如下：
+ >123
+ >346
+ >345
+ >456
+B文件中字符如下：
+>123 456889000
+>345 676897809
+>346 235456777
+需要将A中所有字符串在B中查找出来(含KEY部分)，并分行记录。
+通过python处理如下：
+```python
+# -*- coding: utf-8 -*-
+fp0=open('1.txt','r')        #打开目标文件1；
+fp1=open('2.txt','r')        #打开目标文件2；
+fp2=open('3.txt','w')        #将结果写入文件；
+n=0
+for lines in fp0:
+   str2=lines.strip('\n')  #去掉回车换行符
+   fp1.seek(0)             #返回文件头部第一行
+   for line in fp1:      
+      if not line.find(str2)==-1:       #用find查找这一行中是否有目标字符串；            
+           fp2.write(line)      #保存有这个字符串的那一行数据，如果结果不多可以直接print line
+           n=n+1      #如果有该字符串，计数            
+fp0.close()           #关闭文件
+fp1.close()
+fp2.close()
+print n               #打印行数
+```
+也可以按下面方式处理：
+```python
+fp2=open('3.txt','w')
+n=0
+for lines in file('1.txt').readlines():
+   str2=lines.strip('\n')
+   for line in file('2.txt').readlines():
+        if not line.find(str2)==-1:       #用find查找这一行中是否有目标字符串；                        
+           fp2.write(line)      #保存有这个字符串的那一行数据，如果结果不多可以直接print line
+           n=n+1            #如果有该字符串，计数
+print n           
+```

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ site.title or Images }}{% endblock %}
+
+{% block nav_folder %}
+    class="current"
+{% endblock %}
+
+{% block content %}
+
+    {% include 'include/files_list.html' %}
+
+{% endblock %}

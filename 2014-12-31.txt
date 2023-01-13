@@ -1,0 +1,49 @@
+---
+Title: 设置python的默认编码为utf8
+date: 2014-12-31 11:04
+status: public
+title: '设置python的默认编码为utf8 '
+---
+
+重装系统，在安装完成Eric6后编译PYQT的ui文件是总是提示：
+```
+<type 'exceptions.UnicodeDecodeError'>: 
+'ascii' codec can't decode byte 0xe6 in position 66: ordinal not in range(128)
+--------------------------------------------------------------------------------
+  File "D:\Python27\Lib\site-packages\eric5\Project\ProjectFormsBrowser.py", line 692, in __compileUIDone
+    f.write(line + "\n")
+  File "D:\Python27\Lib\site-packages\eric5\Utilities\compatibility_fixes.py", line 130, in write
+    txt = txt.replace('\n', self.__newline)
+```
+ 怀疑是Eric的问题，于是换为Eric5，问题依旧。最终发现是Python的默认编码为ascii,而Pyqt的默认编码为UTF-8，两者不一致造成。之前电脑上的Python已经被我更改了默认编码，所以一直没问题。
+
+更改Python的默认编码为UTF-8：(以下为摘录From http://etosun.com/?post=120）
+python安装目录：/etc/python2.x/sitecustomize.py  
+```python:n
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+try:
+    import apport_python_hook
+except ImportError:
+    pass
+else:
+    apport_python_hook.install()
+```
+如果在windows下：
+可以在Python安装目录下的Lib/site-packages目录中，新建一个sitecustomize.py文件（也可以建在其它地方，然后手工导入，建在这里，每次启动Python的时候设置将自动生效），内容如下：
+```python:n
+import sys
+sys.setdefaultencoding('utf-8') #set default encoding to utf-8
+```
+然后可以查看到改变已经生效
+```python
+>>>import sys
+>>>sys.getdefaultencoding()
+'utf-8'
+ ```
+此时运行程序，如果仍然报告之前的错误，只需要显示地设定输出的编码
+```python
+print s.encode('utf-8')   
+```
+就可以看到正确显示。
