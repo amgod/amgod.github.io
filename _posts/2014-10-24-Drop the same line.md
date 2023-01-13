@@ -8,7 +8,7 @@ tags: python
 ---
 
 同一文件中存在相同行的内容，而又不想出现相同行时的处理方式：
-```python:n
+```python
 lines_seen = set() 
 outfile = open("4.txt", "w")
 n=0
@@ -21,7 +21,7 @@ outfile.close()
 print n-1
 ```
 另一种方法：
-``` python:n
+``` python
 #--conding:utf-8--
 a=[] #初始化要用到的列表a，用于记录原始行信息
 b=[] #初始化要用到的列表b，用于记录结果数据，由两项构成。前一项为行信息如“小明：90”，后一项为该行对应的出现次数如2
