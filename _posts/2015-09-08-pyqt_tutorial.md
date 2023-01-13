@@ -4,7 +4,7 @@ date: 2015-09-08 20:27
 status: public
 thread: 0
 categories: 日志
-tags: python,pyqt
+tags: pyqt
 ---
 **PyQt4 QListWidget 使用教程**
 listWidget = QListWidget() #实例化一个(item base)的列表
